@@ -70,17 +70,19 @@ namespace CopyMoveRes
                 File.Delete(item.FullName);
             }
 
+            Console.WriteLine("删除OK");
+
             //后移动
             foreach (var item in from.GetDirectories())
             {
-                Console.WriteLine(toName + item.Name);
-
                 Directory.Move(item.FullName, toName + item.Name);
             }
             foreach (var item in from.GetFiles())
             {
                 File.Move(item.FullName, toName+item.Name);
             }
+
+            Console.WriteLine("移动OK");
         }
 
         public void CreateDefaultFile()
