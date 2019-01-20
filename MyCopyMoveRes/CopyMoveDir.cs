@@ -57,6 +57,14 @@ namespace CopyMoveRes
 
             string fromName = from.Name;
             string toName = from.Parent.FullName + @"\";
+
+            //如果被复制的文件夹是空的
+            if (from.GetFiles().Length == 0 || from.GetDirectories().Length == 0)
+            {
+                Console.WriteLine("复制文件夹是空的");
+                return;
+            }
+
             //先删除
             foreach (var item in to.GetDirectories())
             {
